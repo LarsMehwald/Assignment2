@@ -10,8 +10,8 @@ Introduction
 - Argument (policy implication) for state intervention to build up social capital (e.g. funding sports, gathering community, ...) 
 
 Literature Review
-- crime theory 
-- social capital theory 
+- crime theory (Daniel check out what fits)
+- social capital theory (text in Springer book)
 
 Research Question
 - How does social capital in a community determine the level of crime? 
