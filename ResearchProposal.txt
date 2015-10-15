@@ -37,3 +37,6 @@ Analysis
 Conclusion 
 
 Bibliography
+- create a bib file on the go
+- cite everything we use on the go
+- cite R, LATEX, R packages 
