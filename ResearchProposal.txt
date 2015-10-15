@@ -1,1 +1,39 @@
+################
+# Daniel and Lars
+# Research Outline
+# 15.10.2015
+################
 
+Introduction
+- Why is this important? 
+- New data
+- Argument (policy implication) for state intervention to build up social capital (e.g. funding sports, gathering community, ...) 
+
+Literature Review
+- crime theory 
+- social capital theory 
+
+Research Question
+- How does social capital in a community determine the level of crime? 
+- maybe we focus on type of crime that is more harmful for the community (e.g. Sachbeschädigung, Gewalttaten) 
+
+Hypotheses
+- the more social capital, the less crime observed 
+
+Methodology 
+- Operationalize social capital
+- OLS regression
+- maybe panel (t=2)
+
+Data
+- PKS 2013-2014 Kreis-data
+- reported crime -> bias in data (missing: dark figure of crime) 
+- regionalstatistik.de -> difficult to get 2013/2014 data
+- discuss time inconsistency -> assumption about constant data 
+
+Analysis
+- statistical adjustments for inefficient, biased estimators?
+
+Conclusion 
+
+Bibliography
