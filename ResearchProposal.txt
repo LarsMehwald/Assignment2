@@ -50,7 +50,8 @@ In order to answer the research question, we - Operationalize social capital
 
 Data
 Our dependent variable crime rate can be obtained from the German Federal Police's crime statistic ("Polizeiliche Kriminalstatistik" PKS) for the years 2013 and 2014 on a district level ("Kreis"). This number however is missing the dark figure of crime - the unreportet number of crime. Different methods exist to assess this number, it is difficult to assess their reliability. Depending on the type of crime, the reported numbers might contain a structural bias, i.e. some types of crime are reported at a different rate than others. Since we focus on crimes that disrupt the social community, we expect a high level of reporting and this reporting to be consistenly high across different types of crime. 
-Moreover we need distric level data to control for local heterogeneity. This data is provided by the German statistical bureau. 
+Moreover we need distric level data to control for local heterogeneity. This data is provided by the German statistical bureau. We want to control for factors that influence the rational choice for committing a crime. First, unemployment changes the opportunity costs of punishment, i.e. imprisonment. Second, the level of income reduces the educational attainment, age, gender, density, income 
+some only for 2013 
 - regionalstatistik.de -> difficult to get 2013/2014 data
 - discuss time inconsistency -> assumption about constant data 
 
