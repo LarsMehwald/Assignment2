@@ -6,6 +6,7 @@
 
 library("rio")
 library("dplyr")
+library("tidyr")
 search()
 
 URL_PKS_faelle <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/Zeitreihen/Faelle/tb01__FaelleGrundtabelleAb1987__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleAb1987__csv.csv"
@@ -15,6 +16,8 @@ URL_PKS_Kreise_13_14 <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen
 PKS_faelle <- read.csv(URL_PKS_faelle, sep=";")
 PKS_Kreise <- read.csv(URL_PKS_Kreise, sep=";")
 PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";")
+
+rm(URL_PKS_Kreise_13_14)
 
 ########################
 # Kreise 2014
@@ -48,9 +51,6 @@ PKS_Kreise <- PKS_Kreise[,-c(1, 4, 6:17)]
 PKS_Kreise <- PKS_Kreise[c(2,1,3)]
 
 # Reformatting data 
-# install.packages("tidyr")
-library("tidyr")
-search()
 
 # Do I need gather or spread? 
 # Do I need to reformat the data? 
@@ -72,6 +72,7 @@ PKS_Kreise_13_14 <- PKS_Kreise_13_14[,-c(1, 4, 7:15)]
 PKS_Kreise_13_14[1,]
 NameofVariables <- c("Straftat", "Gemeindeschlüssel", "2014 - erfasste Fälle", "2013 - erfasste Fälle")
 names(PKS_Kreise_13_14) <- NameofVariables 
+rm(NameofVariables)
 
 # Delete the first row (before name of variable)
 PKS_Kreise_13_14 <- PKS_Kreise_13_14[-c(1),]
@@ -80,11 +81,13 @@ PKS_Kreise_13_14 <- PKS_Kreise_13_14[-c(1),]
 PKS_Kreise_13_14 <- PKS_Kreise_13_14[c(2,1,4,3)]
 
 # Spread data
-
 PKS_Kreise_13_14[1,]
 
 PKS_Kreise_13 <- PKS_Kreise_13_14[,c(1,2,3)]
 PKS_Kreise_14 <- PKS_Kreise_13_14[,c(1,2,4)]
+rm(PKS_Kreise_13_14)
 
 PKS_Kreise_13_spread <- spread(PKS_Kreise_13, "Straftat", "2013 - erfasste Fälle")
 PKS_Kreise_14_spread <- spread(PKS_Kreise_14, "Straftat", "2014 - erfasste Fälle")
+rm(PKS_Kreise_13)
+rm(PKS_Kreise_14)
