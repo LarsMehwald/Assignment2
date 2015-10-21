@@ -37,11 +37,11 @@ Literature Review
 - social capital theory (text in Springer book)
 
 Research Question
-- How does social capital in a community determine the level of crime? 
+- How does social capital (in social networks and social bonds) in a community determine the level of (violent) crime? 
 - maybe we focus on type of crime that is more harmful for the community (e.g. Sachbeschädigung, Gewalttaten) 
 
 Hypotheses
-- Operalization:the more social capital, the less crime observed
+- Operalization:the more social capital (better networks and closer social ties/structures), the less (violent) crime observed. 
 
 Methodology 
 In order to answer the research question, we - Operationalize social capital
@@ -62,6 +62,3 @@ Analysis
 Conclusion 
 
 Bibliography
-- create a bib file on the go
-- cite everything we use on the go
-- cite R, LATEX, R packages 
