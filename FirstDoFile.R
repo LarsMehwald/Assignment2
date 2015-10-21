@@ -91,3 +91,13 @@ PKS_Kreise_13_spread <- spread(PKS_Kreise_13, "Straftat", "2013 - erfasste Fälle
 PKS_Kreise_14_spread <- spread(PKS_Kreise_14, "Straftat", "2014 - erfasste Fälle")
 rm(PKS_Kreise_13)
 rm(PKS_Kreise_14)
+
+# Adding year variable 
+year13 <- 2013
+PKS_Kreise_13_spread <- cbind(PKS_Kreise_13_spread, year13)
+View(PKS_Kreise_13_spread)
+rm(year13)
+
+year14 <- 2014
+PKS_Kreise_14_spread <- cbind(PKS_Kreise_14_spread, year14)
+rm(year14)
