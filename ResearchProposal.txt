@@ -5,12 +5,23 @@
 ################
 
 Introduction
+Most of crime studies are based on the rational choice assumptions of legal and criminal returns and the importnace of deterrence to reduce criminal behaviours (G. Backer, 2002). Nevertheless, less has been writen about the relevance of social interactions explaining criminal behaviours. Some literature, though, has focused on the relaiton between violent crimes and social capital. Lederman et al. (2002) identified that the prevalence of trust on community members has an effect on violent crimes and that the social cohesion through participation and membership in community oranisations only impact violent crime levels depending on the typ of religious and social organisation. Additionally, Hanslaimer (200?) showed that atruism has a general negative effect on violent crimes, but other indicators of social capital only proved to be related to other types of high impact crime and not to violent crime.
+In Germany, crime theory has... 
+Social capital formation theory... particulary in Germany...
+With new data available for crime statistics for the years 2013 and 2014 it is relavant to studie the incidence of high impact crimes and its relation to social capital formation. 
+Results might be meaningful as rational for publc intervention using crime reduction strategies that help build up social capital at the community level, instead of more aggresive interventionist policing strategies. Strategies that are less police interventionist might have higher public support and might be seen as more legitimate, rather than pure policing strategies. Social engagement at the local level might also help increase trust levels across community memebers and encorage more altruistic behaviours among them. 
+
+
+It is relevant for
 - Why is this important? 
 - New data
 - Argument (policy implication) for state intervention to build up social capital (e.g. funding sports, gathering community, ...) 
 
 Literature Review
 - crime theory (Daniel check out what fits)
+    disorganization theory: groups organization and interaction affect predaatory crime levels.
+    anomie theory: environments where people lack a stron moral order and behave egositically, dimishing social trust.
+    deprivation/strain theory: resource scarcity that prevent society members from achieving their common goals. 
 - social capital theory (text in Springer book)
 
 Research Question
@@ -18,7 +29,7 @@ Research Question
 - maybe we focus on type of crime that is more harmful for the community (e.g. Sachbeschädigung, Gewalttaten) 
 
 Hypotheses
-- the more social capital, the less crime observed 
+- the more social capital, the less crime observed
 
 Methodology 
 - Operationalize social capital
