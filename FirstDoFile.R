@@ -37,11 +37,17 @@ PKS_Kreise <- PKS_Kreise[-c(1),]
 # Delete (for now) unimportant variables
 PKS_Kreise <- PKS_Kreise[,-c(1, 4, 6:17)]
 
-# Reformatting data 
+# Rearranging data
+PKS_Kreise <- PKS_Kreise[c(2,1,3)]
 
+# Reformatting data 
+# install.packages("tidyr")
+library("tidyr")
+search()
+
+# PKS_Kreise_gather <- gather(PKS_Kreise, "Straftat", "erfasste Fälle", "Gemeindeschlüssel")
+# Do I need gather or spread? 
+# Do I need to reformat the data? 
 
 # Setting the class type to numeric: error
 class(PKS_Kreise$"Gemeindeschlüssel") <- numeric # Why is this not working? 
-
-rm(PKS_faelle)[1,]
-rm(VarName1)
