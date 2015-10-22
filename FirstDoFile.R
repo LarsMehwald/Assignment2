@@ -88,13 +88,13 @@ PKS_Kreise_13_14 <- PKS_Kreise_13_14[-c(1),]
 # Rearranging data
 PKS_Kreise_13_14 <- PKS_Kreise_13_14[c(2,1,4,3)]
 
-# Spread data
+# Splitting the data
 PKS_Kreise_13_14[1,]
-
 PKS_Kreise_13 <- PKS_Kreise_13_14[,c(1,2,3)]
 PKS_Kreise_14 <- PKS_Kreise_13_14[,c(1,2,4)]
 rm(PKS_Kreise_13_14)
 
+# Spread data
 PKS_Kreise_13_spread <- spread(PKS_Kreise_13, "Straftat", "2013 - erfasste Fälle")
 PKS_Kreise_14_spread <- spread(PKS_Kreise_14, "Straftat", "2014 - erfasste Fälle")
 rm(PKS_Kreise_13)
@@ -109,6 +109,10 @@ rm(year13)
 year14 <- 2014
 PKS_Kreise_14_spread <- cbind(PKS_Kreise_14_spread, year14)
 rm(year14)
+
+# Removing variables (crimes) not relevant to analysis
+PKS_Kreise_13_spread <- PKS_Kreise_13_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
+PKS_Kreise_14_spread <- PKS_Kreise_14_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
 
 # Saving the data 
 write.csv(PKS_Kreise_13_spread, file = "PKS_Kreise_13_spread.csv", append = "TRUE")
