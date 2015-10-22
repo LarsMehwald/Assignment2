@@ -4,7 +4,7 @@
 # 15.10.2015
 ################
 
-Introduction
+Introduction and theory 
 Most of crime studies are based on the rational choice assumptions of legal and criminal returns and the importnace of deterrence to reduce criminal behaviours (G. Backer, 2002). Nevertheless, less has been written about the relevance of social interactions explaining criminal behaviours. Some literature, though, has focused on the relaiton between violent crimes and social capital. Lederman et al. (2002) identified that the prevalence of trust on community members has an effect on violent crimes and that the social cohesion through participation and membership in community oranisations only impact violent crime levels depending on the typ of religious and social organisation. Additionally, Hanslaimer (2014) showed that atruism has a general negative effect on violent crimes, but other indicators of social capital only proved to be related to other types of high impact crime and not to violent crime.
 Social capital theory... particulary in Germany...
 With new data available for crime statistics for the years 2013 and 2014 at the districts' level in Germany it is relavant to study the incidence of high impact crimes and its relation to social capital formation. 
@@ -45,7 +45,7 @@ Hypotheses
 - Operalization:the more social capital (better networks and closer social ties/structures), the less (violent) crime observed. 
 
 Methodology and analysis 
-In order to answer the research question, we will apply a linear regression model. Since our data only covers two time periods (t=2) we intend to use pooled OLS regressions. We thereby might run the risk to violate OLS assumptions when the values for a districts are correlated from one time period to the other - assuming that the envirnomnent remains rather constant and districts with higher crime rates will also experience higher crime rates in the next period. Therefore we need to check  statistically, whether our measured estimators are unbiased and efficient (e.g. panel regression, dummy for time period, heteroskedasticity). 
+In order to answer the research question, we will apply a linear regression model. Since our data only covers two time periods (t=2) we intend to use pooled OLS regressions. We thereby might run the risk to violate OLS assumptions when the values for a districts are correlated from one time period to the other - assuming that the envirnomnent remains rather constant and districts with higher crime rates will also experience higher crime rates in the next period. Therefore we need to check  statistically, whether our measured estimators are unbiased and efficient (e.g. comparing the results to a panel regression model, dummy for time period, heteroskedasticity). 
 
 Data
 Our dependent variable crime rate can be obtained from the German Federal Police's crime statistic ("Polizeiliche Kriminalstatistik" PKS) for the years 2013 and 2014 on a district level ("Kreis"). This data is also disaggregated regarding the type of crime. This number however is missing the dark figure of crime - the unreportet number of crime in this area. Different methods exist to assess the dark figure of crime, but it is difficult to assess their reliability. Depending on the type of crime, the reported numbers might contain a structural bias, i.e. some types of crime are reported at a different rate than others (e.g. when insurance companies require individual reporting). Since we focus on crimes that disrupt the social community, we expect a high level of reporting and this reporting to be consistenly high across different types of disruptive crimes. It is possible to focus on one type of crime, but also to construct a dependent variable summarising different types of crime. The latter approach might prove util, since this provides greater variance in the dependent variable. 
@@ -54,6 +54,7 @@ Moreover we need distric level data for other variables to control for local het
 On order to conduct the analysis, we need to merge the different datasets. We will use a combination of a unique identifier for the district ("Gemeindeschlüssel") and a year indicator (2013 or 2014). 
 
 Conclusion 
-- expected results 
+We expect to confirm our hypothesis: districts with higher social capital will experience lower levels of crime, whereas districts with lower levels of social capital will experience (ceteris paribus) higher levels of crime. 
+Performing various statistical analysis and obtaining all relevant control variables, we expect high internal validity of the results. Nevertheless the external validity of the results might prove low: neither can we determine whether these results hold for other time periods in Germany, nor can we extrapolate these results to other regions. However external validity can be argued for if these results prove to be in line with research in the area of social capital that has been conducted in other regions and other time periods.
 
 Bibliography
