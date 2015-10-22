@@ -1,7 +1,8 @@
 ################
-# Daniel and Lars
-# Research Outline
-# 15.10.2015
+# Daniel Salgado Moreno and Lars Mehwald
+#Introduction to Collaborative Social Science Data Analysis
+# Research Proposal 
+# 23.10.2015
 ################
 
 Introduction 
