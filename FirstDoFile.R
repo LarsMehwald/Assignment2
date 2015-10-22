@@ -4,19 +4,27 @@
 # Working with the PKS data frame 
 ########################
 
+# Setting the working directory
+getwd()
+setwd("D:/Eigene Dokumente/!1 Vorlesungen/!! WS 2015/Introduction to Collaborative Social Science Data Analysis/Assignment2")
+
+# Loading required packages 
 library("rio")
 library("dplyr")
 library("tidyr")
 search()
 
-URL_PKS_faelle <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/Zeitreihen/Faelle/tb01__FaelleGrundtabelleAb1987__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleAb1987__csv.csv"
-URL_PKS_Kreise <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/BKATabellen/FaelleLaenderKreiseStaedte/tb01__FaelleGrundtabelleKreise__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleKreise__csv.csv"
+# Scrapping the data
+# URL_PKS_faelle <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/Zeitreihen/Faelle/tb01__FaelleGrundtabelleAb1987__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleAb1987__csv.csv"
+# URL_PKS_Kreise <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/BKATabellen/FaelleLaenderKreiseStaedte/tb01__FaelleGrundtabelleKreise__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleKreise__csv.csv"
 URL_PKS_Kreise_13_14 <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/BKATabellen/FaelleLaenderKreiseStaedte/tb01__FaelleGrundtabelleKreiseFallentwicklung__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleKreiseFallentwicklung__csv.csv"
 
-PKS_faelle <- read.csv(URL_PKS_faelle, sep=";")
-PKS_Kreise <- read.csv(URL_PKS_Kreise, sep=";")
+# PKS_faelle <- read.csv(URL_PKS_faelle, sep=";")
+# PKS_Kreise <- read.csv(URL_PKS_Kreise, sep=";")
 PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";")
 
+# rm(URL_PKS_faelle)
+# rm(URL_PKS_Kreise)
 rm(URL_PKS_Kreise_13_14)
 
 ########################
@@ -101,3 +109,7 @@ rm(year13)
 year14 <- 2014
 PKS_Kreise_14_spread <- cbind(PKS_Kreise_14_spread, year14)
 rm(year14)
+
+# Saving the data 
+write.csv(PKS_Kreise_13_spread, file = "PKS_Kreise_13_spread.csv", append = "TRUE")
+write.csv(PKS_Kreise_14_spread, file = "PKS_Kreise_14_spread.csv", append = "TRUE")
