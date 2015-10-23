@@ -17,7 +17,6 @@ and files:
 - README.md: the introductory file to this repository 
 - ResearchProposal.html: HTML file that contains the research proposal 
 - ResearchProposal.rmd: R markdown file that creates the html output
-- ResearchProposal.txt: the file containing our research proposal - later transferred into R markdown file
 
 ## Using: 
 RStudio Team (2015). RStudio: Integrated Development for R. RStudio, Inc., Boston, MA URL http://www.rstudio.com/.
