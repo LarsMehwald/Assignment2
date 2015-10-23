@@ -25,7 +25,7 @@ URL_PKS_Kreise_13_14 <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen
 
 # PKS_faelle <- read.csv(URL_PKS_faelle, sep=";")
 # PKS_Kreise <- read.csv(URL_PKS_Kreise, sep=";")
-PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";", quote = "")
+PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";")
 
 # rm(URL_PKS_faelle)
 # rm(URL_PKS_Kreise)
@@ -74,9 +74,6 @@ PKS_Kreise <- PKS_Kreise[c(2,1,3)]
 # Kreise 2013 2014
 ########################
 
-# Viewing the Data
-View(PKS_Kreise_13_14)
-
 # Delete (for now) unimportant variables
 PKS_Kreise_13_14 <- PKS_Kreise_13_14[,-c(1, 4, 7:15)]
 
@@ -103,56 +100,54 @@ PKS_Kreise_14_spread <- spread(PKS_Kreise_14, "Straftat", "2014 - erfasste Fälle
 rm(PKS_Kreise_13)
 rm(PKS_Kreise_14)
 
-# Adding year variable 
-year13 <- 2013
-PKS_Kreise_13_spread <- cbind(PKS_Kreise_13_spread, year13)
-rm(year13)
-
-year14 <- 2014
-PKS_Kreise_14_spread <- cbind(PKS_Kreise_14_spread, year14)
-rm(year14)
-
-# Combining district with year variable
-# PKS_Kreise_13_spread$districtyear <- c(PKS_Kreise_13_spread$district, PKS_Kreise_13_spread$year13)
-# rm(PKS_Kreise_13_spread[,c(8,9)])
-
 # Removing variables (crimes) not relevant to analysis
 PKS_Kreise_13_spread <- PKS_Kreise_13_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
 PKS_Kreise_14_spread <- PKS_Kreise_14_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
 
 # Translation of variable names into English
 names(PKS_Kreise_13_spread)
-NameofVariables <- c("district", "bodily harm", "dangerous bodily harm", "violent crime", "murder and manslaughter", "robbery", "year")
+NameofVariables <- c("district", "bodily harm", "dangerous bodily harm", "violent crime", "murder and manslaughter", "robbery")
 names(PKS_Kreise_13_spread) <- NameofVariables 
 names(PKS_Kreise_14_spread) <- NameofVariables 
 rm(NameofVariables)
 
+# Adding a time variable: year
+PKS_Kreise_13_spread$year <- 2013
+PKS_Kreise_14_spread$year <- 2014
+
+# Combining district variable with year and rearranging
+PKS_Kreise_13_spread$district_year <- paste(PKS_Kreise_13_spread$district, "2013", sep = "_")
+PKS_Kreise_13 <- PKS_Kreise_13_spread[,-c(1)]
+PKS_Kreise_13 <- PKS_Kreise_13[,c(7,1,2,3,4,5,6)]
+rm(PKS_Kreise_13_spread)
+
+PKS_Kreise_14_spread$district_year <- paste(PKS_Kreise_14_spread$district, "2014", sep = "_")
+PKS_Kreise_14 <- PKS_Kreise_14_spread[,-c(1)]
+PKS_Kreise_14 <- PKS_Kreise_14[,c(7,1,2,3,4,5,6)]
+rm(PKS_Kreise_14_spread)
+
+# Combining the data frames 
+PKS_Kreise <- rbind(PKS_Kreise_13, PKS_Kreise_14)
+rm(PKS_Kreise_13)
+rm(PKS_Kreise_14)
+
 # Changing the class of variables
-PKS_Kreise_13_spread[,1] <- as.numeric(as.character(PKS_Kreise_13_spread[,1]))
-PKS_Kreise_13_spread[,2] <- as.numeric(as.character(PKS_Kreise_13_spread[,2]))
-PKS_Kreise_13_spread[,3] <- as.numeric(as.character(PKS_Kreise_13_spread[,3]))
-PKS_Kreise_13_spread[,4] <- as.numeric(as.character(PKS_Kreise_13_spread[,4]))
-PKS_Kreise_13_spread[,5] <- as.numeric(as.character(PKS_Kreise_13_spread[,5]))
-PKS_Kreise_13_spread[,6] <- as.numeric(as.character(PKS_Kreise_13_spread[,6]))
-PKS_Kreise_13_spread[,7] <- as.numeric(as.character(PKS_Kreise_13_spread[,7]))
+PKS_Kreise[,2] <- as.numeric(as.character(PKS_Kreise[,2]))
+PKS_Kreise[,3] <- as.numeric(as.character(PKS_Kreise[,3]))
+PKS_Kreise[,4] <- as.numeric(as.character(PKS_Kreise[,4]))
+PKS_Kreise[,5] <- as.numeric(as.character(PKS_Kreise[,5]))
+PKS_Kreise[,6] <- as.numeric(as.character(PKS_Kreise[,6]))
+PKS_Kreise[,7] <- as.numeric(as.character(PKS_Kreise[,7]))
 
-PKS_Kreise_14_spread[,1] <- as.numeric(as.character(PKS_Kreise_14_spread[,1]))
-PKS_Kreise_14_spread[,2] <- as.numeric(as.character(PKS_Kreise_14_spread[,2]))
-PKS_Kreise_14_spread[,3] <- as.numeric(as.character(PKS_Kreise_14_spread[,3]))
-PKS_Kreise_14_spread[,4] <- as.numeric(as.character(PKS_Kreise_14_spread[,4]))
-PKS_Kreise_14_spread[,5] <- as.numeric(as.character(PKS_Kreise_14_spread[,5]))
-PKS_Kreise_14_spread[,6] <- as.numeric(as.character(PKS_Kreise_14_spread[,6]))
-PKS_Kreise_14_spread[,7] <- as.numeric(as.character(PKS_Kreise_14_spread[,7]))
-
-# Summarising data
+# Summarising data - commented out due to change in data frame 
 title1 <- "These are the summary statistics for the year 2013"
 print(title1)
-summary(PKS_Kreise_13_spread[,-c(1,7)])
+# summary(PKS_Kreise_13_spread[,-c(1,7)])
 rm(title1)
 
 title2 <- "These are the summary statistics for the year 2014"
 print(title2)
-summary(PKS_Kreise_14_spread[,-c(1,7)])
+# summary(PKS_Kreise_14_spread[,-c(1,7)])
 rm(title2)
 
 # Saving the data 
@@ -161,4 +156,3 @@ write.csv(PKS_Kreise_14_spread, file = "PKS_Kreise_14_spread.csv", append = "TRU
 
 # Removing everything from workspace
 rm(list=ls()) 
-
