@@ -7,7 +7,7 @@ Assignment 2: Research Proposal
 The second pair assignment is a proposal for your Collaborative Research Project. It is an opportunity for you to layout your collaborative research paper question, justify why it is interesting, provide basic literature review (properly cited using BibTeX), and identify data sources/methodologies that you can access to help answer your question. You will also demonstrate your understanding of literate programming technologies. Deadline 23 October, 2,000 words maximum, 10% of final grade.
 
 ## Research proposal:
-The research proposal is contained in the ResearchProposal.html file.
+The research proposal is contained in two files: the ResearchProposal.html and the ReaserchProposal.pdf files.
 
 ## Content: 
 This repository includes the following folders 
@@ -16,8 +16,9 @@ This repository includes the following folders
 - Literature: folder containing literauture
 
 and files: 
-- FirstTry.R: A first try on data analysis using RStudio
 - README.md: the introductory file to this repository 
+- FirstTry.R: A first try on data analysis using RStudio
+- ResearchProposal.pdf: PDF file containing the output for the research proposal
 - ResearchProposal.html: HTML file that contains the research proposal 
 - ResearchProposal.rmd: R markdown file that creates the html output
 
