@@ -151,7 +151,7 @@ summary(PKS_Kreise_14_spread[,-c(1,7)])
 rm(title2)
 
 # Saving the data 
-write.csv(PKS_Kreise_13_spread, file = "C:/Users/larsunterwegs/Desktop/wtf/PKS_Kreise_13_spread.csv", append = "TRUE")
+write.csv(PKS_Kreise_13_spread, file = "PKS_Kreise_13_spread.csv", append = "TRUE")
 write.csv(PKS_Kreise_14_spread, file = "PKS_Kreise_14_spread.csv", append = "TRUE")
 
 # Removing everything from workspace
