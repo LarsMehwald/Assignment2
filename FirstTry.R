@@ -5,13 +5,18 @@
 ########################
 
 # Setting the working directory
-getwd()
 setwd("D:/Eigene Dokumente/!1 Vorlesungen/!! WS 2015/Introduction to Collaborative Social Science Data Analysis/Assignment2")
 
 # Loading required packages 
 library("rio")
 library("dplyr")
 library("tidyr")
+library("repmis")
+
+# Citing R packages 
+pkgs <- c('dplyr', 'ggplot2', 'rio', 'tidyr', 'repmis')
+LoadandCite(pkgs, file = 'RpackageCitations.bib')
+rm(pkgs)
 
 # Scrapping the data
 # URL_PKS_faelle <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/Zeitreihen/Faelle/tb01__FaelleGrundtabelleAb1987__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleAb1987__csv.csv"
