@@ -84,21 +84,21 @@ names(PKS_Kreise_14_spread) <- NameofVariables
 rm(NameofVariables)
 
 # Changing the class of variables
-class(PKS_Kreise_13_spread$district) <- "numeric"
-class(PKS_Kreise_13_spread$`bodily harm`) <- "numeric"
-class(PKS_Kreise_13_spread$`dangerous bodily harm`) <- "numeric"
-class(PKS_Kreise_13_spread$`violent crime`) <- "numeric"
-class(PKS_Kreise_13_spread$`murder and manslaughter`) <- "numeric"
-class(PKS_Kreise_13_spread$robbery) <- "numeric"
-class(PKS_Kreise_13_spread$year) <- "numeric"
+PKS_Kreise_13_spread[,1] <- as.numeric(as.character(PKS_Kreise_13_spread[,1]))
+PKS_Kreise_13_spread[,2] <- as.numeric(as.character(PKS_Kreise_13_spread[,2]))
+PKS_Kreise_13_spread[,3] <- as.numeric(as.character(PKS_Kreise_13_spread[,3]))
+PKS_Kreise_13_spread[,4] <- as.numeric(as.character(PKS_Kreise_13_spread[,4]))
+PKS_Kreise_13_spread[,5] <- as.numeric(as.character(PKS_Kreise_13_spread[,5]))
+PKS_Kreise_13_spread[,6] <- as.numeric(as.character(PKS_Kreise_13_spread[,6]))
+PKS_Kreise_13_spread[,7] <- as.numeric(as.character(PKS_Kreise_13_spread[,7]))
 
-class(PKS_Kreise_14_spread$district) <- "numeric"
-class(PKS_Kreise_14_spread$`bodily harm`) <- "numeric"
-class(PKS_Kreise_14_spread$`dangerous bodily harm`) <- "numeric"
-class(PKS_Kreise_14_spread$`violent crime`) <- "numeric"
-class(PKS_Kreise_14_spread$`murder and manslaughter`) <- "numeric"
-class(PKS_Kreise_14_spread$robbery) <- "numeric"
-class(PKS_Kreise_14_spread$year) <- "numeric"
+PKS_Kreise_14_spread[,1] <- as.numeric(as.character(PKS_Kreise_14_spread[,1]))
+PKS_Kreise_14_spread[,2] <- as.numeric(as.character(PKS_Kreise_14_spread[,2]))
+PKS_Kreise_14_spread[,3] <- as.numeric(as.character(PKS_Kreise_14_spread[,3]))
+PKS_Kreise_14_spread[,4] <- as.numeric(as.character(PKS_Kreise_14_spread[,4]))
+PKS_Kreise_14_spread[,5] <- as.numeric(as.character(PKS_Kreise_14_spread[,5]))
+PKS_Kreise_14_spread[,6] <- as.numeric(as.character(PKS_Kreise_14_spread[,6]))
+PKS_Kreise_14_spread[,7] <- as.numeric(as.character(PKS_Kreise_14_spread[,7]))
 
 # Summarising data
 title1 <- "These are the summary statistics for the year 2013"
