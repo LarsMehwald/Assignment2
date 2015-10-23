@@ -103,7 +103,6 @@ rm(PKS_Kreise_14)
 # Adding year variable 
 year13 <- 2013
 PKS_Kreise_13_spread <- cbind(PKS_Kreise_13_spread, year13)
-View(PKS_Kreise_13_spread)
 rm(year13)
 
 year14 <- 2014
@@ -114,6 +113,44 @@ rm(year14)
 PKS_Kreise_13_spread <- PKS_Kreise_13_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
 PKS_Kreise_14_spread <- PKS_Kreise_14_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
 
+# Translation of variable names into English
+names(PKS_Kreise_13_spread)
+NameofVariables <- c("district", "bodily harm", "dangerous bodily harm", "violent crime", "murder and manslaughter", "robbery", "year")
+names(PKS_Kreise_13_spread) <- NameofVariables 
+names(PKS_Kreise_14_spread) <- NameofVariables 
+rm(NameofVariables)
+
+# Changing the class of variables
+class(PKS_Kreise_13_spread$district) <- "numeric"
+class(PKS_Kreise_13_spread$`bodily harm`) <- "numeric"
+class(PKS_Kreise_13_spread$`dangerous bodily harm`) <- "numeric"
+class(PKS_Kreise_13_spread$`violent crime`) <- "numeric"
+class(PKS_Kreise_13_spread$`murder and manslaughter`) <- "numeric"
+class(PKS_Kreise_13_spread$robbery) <- "numeric"
+class(PKS_Kreise_13_spread$year) <- "numeric"
+
+class(PKS_Kreise_14_spread$district) <- "numeric"
+class(PKS_Kreise_14_spread$`bodily harm`) <- "numeric"
+class(PKS_Kreise_14_spread$`dangerous bodily harm`) <- "numeric"
+class(PKS_Kreise_14_spread$`violent crime`) <- "numeric"
+class(PKS_Kreise_14_spread$`murder and manslaughter`) <- "numeric"
+class(PKS_Kreise_14_spread$robbery) <- "numeric"
+class(PKS_Kreise_14_spread$year) <- "numeric"
+
+# Summarising data
+title1 <- "These are the summary statistics for the year 2013"
+print(title1)
+summary(PKS_Kreise_13_spread[,-c(1,7)])
+rm(title1)
+
+title2 <- "These are the summary statistics for the year 2014"
+print(title2)
+summary(PKS_Kreise_14_spread[,-c(1,7)])
+rm(title2)
+
 # Saving the data 
 write.csv(PKS_Kreise_13_spread, file = "PKS_Kreise_13_spread.csv", append = "TRUE")
 write.csv(PKS_Kreise_14_spread, file = "PKS_Kreise_14_spread.csv", append = "TRUE")
+
+# Removing everything from workspace
+rm(list=ls()) 
