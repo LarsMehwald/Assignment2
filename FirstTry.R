@@ -12,7 +12,6 @@ setwd("D:/Eigene Dokumente/!1 Vorlesungen/!! WS 2015/Introduction to Collaborati
 library("rio")
 library("dplyr")
 library("tidyr")
-search()
 
 # Scrapping the data
 # URL_PKS_faelle <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/Zeitreihen/Faelle/tb01__FaelleGrundtabelleAb1987__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleAb1987__csv.csv"
@@ -21,7 +20,7 @@ URL_PKS_Kreise_13_14 <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen
 
 # PKS_faelle <- read.csv(URL_PKS_faelle, sep=";")
 # PKS_Kreise <- read.csv(URL_PKS_Kreise, sep=";")
-PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";")
+PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";", quote = "")
 
 # rm(URL_PKS_faelle)
 # rm(URL_PKS_Kreise)
@@ -77,7 +76,6 @@ View(PKS_Kreise_13_14)
 PKS_Kreise_13_14 <- PKS_Kreise_13_14[,-c(1, 4, 7:15)]
 
 # Renaming manually 
-PKS_Kreise_13_14[1,]
 NameofVariables <- c("Straftat", "Gemeindeschlüssel", "2014 - erfasste Fälle", "2013 - erfasste Fälle")
 names(PKS_Kreise_13_14) <- NameofVariables 
 rm(NameofVariables)
@@ -109,6 +107,10 @@ year14 <- 2014
 PKS_Kreise_14_spread <- cbind(PKS_Kreise_14_spread, year14)
 rm(year14)
 
+# Combining district with year variable
+# PKS_Kreise_13_spread$districtyear <- c(PKS_Kreise_13_spread$district, PKS_Kreise_13_spread$year13)
+# rm(PKS_Kreise_13_spread[,c(8,9)])
+
 # Removing variables (crimes) not relevant to analysis
 PKS_Kreise_13_spread <- PKS_Kreise_13_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
 PKS_Kreise_14_spread <- PKS_Kreise_14_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
@@ -121,21 +123,21 @@ names(PKS_Kreise_14_spread) <- NameofVariables
 rm(NameofVariables)
 
 # Changing the class of variables
-class(PKS_Kreise_13_spread$district) <- "numeric"
-class(PKS_Kreise_13_spread$`bodily harm`) <- "numeric"
-class(PKS_Kreise_13_spread$`dangerous bodily harm`) <- "numeric"
-class(PKS_Kreise_13_spread$`violent crime`) <- "numeric"
-class(PKS_Kreise_13_spread$`murder and manslaughter`) <- "numeric"
-class(PKS_Kreise_13_spread$robbery) <- "numeric"
-class(PKS_Kreise_13_spread$year) <- "numeric"
+PKS_Kreise_13_spread[,1] <- as.numeric(as.character(PKS_Kreise_13_spread[,1]))
+PKS_Kreise_13_spread[,2] <- as.numeric(as.character(PKS_Kreise_13_spread[,2]))
+PKS_Kreise_13_spread[,3] <- as.numeric(as.character(PKS_Kreise_13_spread[,3]))
+PKS_Kreise_13_spread[,4] <- as.numeric(as.character(PKS_Kreise_13_spread[,4]))
+PKS_Kreise_13_spread[,5] <- as.numeric(as.character(PKS_Kreise_13_spread[,5]))
+PKS_Kreise_13_spread[,6] <- as.numeric(as.character(PKS_Kreise_13_spread[,6]))
+PKS_Kreise_13_spread[,7] <- as.numeric(as.character(PKS_Kreise_13_spread[,7]))
 
-class(PKS_Kreise_14_spread$district) <- "numeric"
-class(PKS_Kreise_14_spread$`bodily harm`) <- "numeric"
-class(PKS_Kreise_14_spread$`dangerous bodily harm`) <- "numeric"
-class(PKS_Kreise_14_spread$`violent crime`) <- "numeric"
-class(PKS_Kreise_14_spread$`murder and manslaughter`) <- "numeric"
-class(PKS_Kreise_14_spread$robbery) <- "numeric"
-class(PKS_Kreise_14_spread$year) <- "numeric"
+PKS_Kreise_14_spread[,1] <- as.numeric(as.character(PKS_Kreise_14_spread[,1]))
+PKS_Kreise_14_spread[,2] <- as.numeric(as.character(PKS_Kreise_14_spread[,2]))
+PKS_Kreise_14_spread[,3] <- as.numeric(as.character(PKS_Kreise_14_spread[,3]))
+PKS_Kreise_14_spread[,4] <- as.numeric(as.character(PKS_Kreise_14_spread[,4]))
+PKS_Kreise_14_spread[,5] <- as.numeric(as.character(PKS_Kreise_14_spread[,5]))
+PKS_Kreise_14_spread[,6] <- as.numeric(as.character(PKS_Kreise_14_spread[,6]))
+PKS_Kreise_14_spread[,7] <- as.numeric(as.character(PKS_Kreise_14_spread[,7]))
 
 # Summarising data
 title1 <- "These are the summary statistics for the year 2013"
@@ -149,8 +151,9 @@ summary(PKS_Kreise_14_spread[,-c(1,7)])
 rm(title2)
 
 # Saving the data 
-write.csv(PKS_Kreise_13_spread, file = "PKS_Kreise_13_spread.csv", append = "TRUE")
+write.csv(PKS_Kreise_13_spread, file = "C:/Users/larsunterwegs/Desktop/wtf/PKS_Kreise_13_spread.csv", append = "TRUE")
 write.csv(PKS_Kreise_14_spread, file = "PKS_Kreise_14_spread.csv", append = "TRUE")
 
 # Removing everything from workspace
 rm(list=ls()) 
+
