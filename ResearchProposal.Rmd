@@ -28,10 +28,7 @@ We want to measure different dimensions of our independent variable social capit
 Moreover we need district level data for other variables to control for local heterogeneity. This data is provided by the German statistical bureau. We want to control for factors that influence the rational choice for committing a crime. First, unemployment changes the opportunity costs of punishment, i.e. imprisonment. Second, the level of income: high income reduces the punishment felt by individuals for minor charges (monetary penalty), but has no predetermined impact on the impact of imprisonment. In addition we want to control for a district's composition in age (younger persons are found to be more involved in crimes), gender (men are found to be more related to crimes), population size (i.e. more people, more expected crimes) and population density (as a proxy for urbanisation). As for now, we expect to obtain measures for some variables only for 2013. It needs to be determined, whether the fluctuation of the variable before 2013 allows to assume identical values for 2014.  
 On order to conduct the analysis, we need to merge the different datasets. We will use a combination of a unique identifier for the district ("Gemeindeschlüssel") and a year indicator (2013 or 2014). 
 
-```{r SummaryData, echo=FALSE, cache=TRUE, message=FALSE}
-# message=FALSE is required, otherwise displays output at packages
-# cache = TRUE is nice to the police website :) 
-
+```{r SummaryData, echo=FALSE, message=FALSE}
 # Loading required packages 
 library("rio")
 library("dplyr")
