@@ -28,8 +28,89 @@ We want to measure different dimensions of our independent variable social capit
 Moreover we need distric level data for other variables to control for local heterogeneity. This data is provided by the German statistical bureau. We want to control for factors that influence the rational choice for committing a crime. First, unemployment changes the opportunity costs of punishment, i.e. imprisonment. Second, the level of income: high income reduces the punishment felt by individuals for minor charges (monetary penalty), but has no predetermined impact on the impact of inprisonment. In addition we want to control for a district's composition in age (younger persons are found to be more involved in crimes), gender (men are found to be more related to crimes), population size (i.e. more people, more expected crimes) and population density (as a proxy for urbanisation). As for now, we expect to obtain measures for some variables only for 2013. It needs to be determined, whether the fluctuation of the variable before 2013 allows to assume indentical values for 2014. 
 On order to conduct the analysis, we need to merge the different datasets. We will use a combination of a unique identifier for the district ("Gemeindeschlüssel") and a year indicator (2013 or 2014). 
 
-```{r SummaryData, echo=FALSE}
-# 
+```{r SummaryData, echo=FALSE, message=FALSE}
+# Loading required packages 
+library("rio")
+library("dplyr")
+library("tidyr")
+
+# Scrapping the data
+URL_PKS_Kreise_13_14 <- "http://www.bka.de/SharedDocs/Downloads/DE/Publikationen/PolizeilicheKriminalstatistik/2014/BKATabellen/FaelleLaenderKreiseStaedte/tb01__FaelleGrundtabelleKreiseFallentwicklung__csv,templateId=raw,property=publicationFile.csv/tb01__FaelleGrundtabelleKreiseFallentwicklung__csv.csv"
+PKS_Kreise_13_14 <- read.csv(URL_PKS_Kreise_13_14, sep=";")
+rm(URL_PKS_Kreise_13_14)
+
+# Delete (for now) unimportant variables
+PKS_Kreise_13_14 <- PKS_Kreise_13_14[,-c(1, 4, 7:15)]
+
+# Renaming manually 
+NameofVariables <- c("Straftat", "Gemeindeschlüssel", "2014 - erfasste Fälle", "2013 - erfasste Fälle")
+names(PKS_Kreise_13_14) <- NameofVariables 
+rm(NameofVariables)
+
+# Delete the first row (before name of variable)
+PKS_Kreise_13_14 <- PKS_Kreise_13_14[-c(1),]
+
+# Rearranging data
+PKS_Kreise_13_14 <- PKS_Kreise_13_14[c(2,1,4,3)]
+
+# Splitting the data
+PKS_Kreise_13 <- PKS_Kreise_13_14[,c(1,2,3)]
+PKS_Kreise_14 <- PKS_Kreise_13_14[,c(1,2,4)]
+rm(PKS_Kreise_13_14)
+
+# Spread data
+PKS_Kreise_13_spread <- spread(PKS_Kreise_13, "Straftat", "2013 - erfasste Fälle")
+PKS_Kreise_14_spread <- spread(PKS_Kreise_14, "Straftat", "2014 - erfasste Fälle")
+rm(PKS_Kreise_13)
+rm(PKS_Kreise_14)
+
+# Adding year variable 
+year13 <- 2013
+PKS_Kreise_13_spread <- cbind(PKS_Kreise_13_spread, year13)
+rm(year13)
+
+year14 <- 2014
+PKS_Kreise_14_spread <- cbind(PKS_Kreise_14_spread, year14)
+rm(year14)
+
+# Removing variables (crimes) not relevant to analysis
+PKS_Kreise_13_spread <- PKS_Kreise_13_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
+PKS_Kreise_14_spread <- PKS_Kreise_14_spread[,-c(3,4,5,6,11,12,13,14,15,16,17,18)]
+
+# Translation of variable names into English
+NameofVariables <- c("district", "bodily harm", "dangerous bodily harm", "violent crime", "murder and manslaughter", "robbery", "year")
+names(PKS_Kreise_13_spread) <- NameofVariables 
+names(PKS_Kreise_14_spread) <- NameofVariables 
+rm(NameofVariables)
+
+# Changing the class of variables
+class(PKS_Kreise_13_spread$district) <- "numeric"
+class(PKS_Kreise_13_spread$`bodily harm`) <- "numeric"
+class(PKS_Kreise_13_spread$`dangerous bodily harm`) <- "numeric"
+class(PKS_Kreise_13_spread$`violent crime`) <- "numeric"
+class(PKS_Kreise_13_spread$`murder and manslaughter`) <- "numeric"
+class(PKS_Kreise_13_spread$robbery) <- "numeric"
+class(PKS_Kreise_13_spread$year) <- "numeric"
+
+class(PKS_Kreise_14_spread$district) <- "numeric"
+class(PKS_Kreise_14_spread$`bodily harm`) <- "numeric"
+class(PKS_Kreise_14_spread$`dangerous bodily harm`) <- "numeric"
+class(PKS_Kreise_14_spread$`violent crime`) <- "numeric"
+class(PKS_Kreise_14_spread$`murder and manslaughter`) <- "numeric"
+class(PKS_Kreise_14_spread$robbery) <- "numeric"
+class(PKS_Kreise_14_spread$year) <- "numeric"
+
+# Summarising data
+title1 <- "These are the summary statistics for the year 2013"
+print(title1)
+summary(PKS_Kreise_13_spread[,-c(1,7)])
+rm(title1)
+
+title2 <- "These are the summary statistics for the year 2014"
+print(title2)
+summary(PKS_Kreise_14_spread[,-c(1,7)])
+rm(title2)
+
 ```
 
 ## Conclusion 
